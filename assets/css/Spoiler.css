@@ -1,0 +1,13 @@
+body { margin: 0; padding: 0; text-align: center; background: #F2F2F2; font-family: Arial; font-size: 13px; line-height: 1.6; color: #444; }
+        
+div#container { text-align: left; margin: 0 auto; width: 600px; margin: 30px auto; padding: 20px 20px; border: 1px solid #D2D2D2; -moz-box-shadow: 0 0 30px #CCC; }
+div#container { -webkit-box-shadow: 0 0 30px #CCC; box-shadow: 0 0 30px #CCC; background: #FFF;  background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 15px); }
+div#container { background: -webkit-gradient(linear, left top, left 15, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF)); }
+
+div#container h1 { margin: 0; font-size: 30px; font-weight: normal; font-family: "Museo 700", Arial; }
+h1 em { font-size: 50%; letter-spacing: -0.05em; }
+div#container hr { border: none; height: 1px; line-height: 1px; background: #D8D8D8; margin-bottom: 20px; padding: 0; }
+
+div.spoiler, div.quote, div.spoilerwraper { width: 580px; }
+div.spoiler div.quote { display:none; }
+div.quote, div.spoilerwraper { padding: 3px; border: 1px solid #D2D2D2;}

@@ -27,5 +27,7 @@ function rel_url($params, $smarty)
 \core\App::getSmarty()->registerPlugin("function","url", "url");
 \core\App::getSmarty()->registerPlugin("function","rel_url", "rel_url");
 
+
+
 #assign variables
 #\core\App::getSmarty()->assign('variable',$variable);

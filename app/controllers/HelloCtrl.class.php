@@ -14,6 +14,9 @@ use core\Utils;
 class HelloCtrl {
     
     public function action_hello() {
+
+        $records =App::getDB()->select("albums_1","*");
+        App::getSmarty()->assign("lista",$records);
 		        
         $variable = 123;
         
