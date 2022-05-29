@@ -40,23 +40,33 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
-					
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Bazy <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+
+							<li><a href="/Calc/calc.php">Muzyka</a></li>
+
+							<li><a href="/Cred/cred.php">Pracownicy</a></li>
+
+
+						</ul>
+					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Projekty <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 
-							<li><a href="/Calc/calc.php">Kalkulator</a></li>
 
-							<li><a href="/Cred/cred.php">Kalkulator Kredytowy</a></li>
-
-							<li><a href="">Coming Soon</a></li>
-
-							<li><a href="">Coming Soon</a></li>
 
 						</ul>
 					</li>
 					
-					{block name=log}  {/block}
+					{block name=log} 
+					{if count($conf->roles)>0}
+						<a href="{$conf->action_root}logout" class="pure-menu-heading pure-menu-link">Wyloguj</a>
+					{else}	
+						<a href="{$conf->action_root}loginShow" class="pure-menu-heading pure-menu-link">Zaloguj</a>
+					{/if}
+					</div> {/block}
 					
 				</ul>
 			</div><!--/.nav-collapse -->
@@ -83,7 +93,21 @@
 		{block name=whitey} 
 
 		{/block}
+{block name=messages}
 
+{if $msgs->isMessage()}
+<div class="messages bottom-margin">
+	<ul>
+	{foreach $msgs->getMessages() as $msg}
+	{strip}
+		<li class="msg {if $msg->isError()}error{/if} {if $msg->isWarning()}warning{/if} {if $msg->isInfo()}info{/if}">{$msg->text}</li>
+	{/strip}
+	{/foreach}
+	</ul>
+</div>
+{/if}
+
+{/block}
 	</div>
 	<!-- /Intro-->
 		
@@ -100,36 +124,10 @@
 				{/block}
 			    <h3 class="text-center thin"></h3>
 			
-			    <div class="row">
-				    <div class="col-md-3 col-sm-6 highlight">
-				
-					{block name=k1} 
+				{block name=row}
 
-					{/block}
-				
-				    </div>
-				    <div class="col-md-3 col-sm-6 highlight">
-				
-					{block name=k2} 
-
-					{/block}
-				 
-				    </div>
-				    <div class="col-md-3 col-sm-6 highlight">
-				
-					{block name=k3} 
-
-					{/block}
-				  
-				    </div>
-				    <div class="col-md-3 col-sm-6 highlight">
-					
-					{block name=k4} 
-
-					{/block}
-				  
-				    </div>
-			    </div> <!-- /row  -->
+				{/block}
+		 		<!-- /row  -->
 			{block name=Cform}
 
 			{/block}
