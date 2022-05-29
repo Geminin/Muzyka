@@ -81,7 +81,17 @@
 	<!-- Intro -->
 	<div class="container text-center">
 		{block name=whitey} 
-
+		<table cellpadding="5">
+			{foreach $lista as $wiersz}
+			<tr>
+ 				<td>{$wiersz["Album_id"]}</td>
+ 				<td>{$wiersz["Title"]}</td>
+ 				<td>{$wiersz["Performer_id"]}</td>
+ 				<td>{$wiersz["Genre"]}</td>
+ 				<td>{$wiersz["Price"]}</td>
+			</tr>
+			{/foreach}
+		</table>
 		{/block}
 
 	</div>
