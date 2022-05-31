@@ -10,7 +10,7 @@ use core\Utils;
 use core\RoleUtils;
 use core\ParamUtils;
 
-class MusicEditCtrl{
+class AlbumEditCtrl{
     private $form;
     public function __construct(){
         $this->form = new MusicEditForm();
@@ -57,13 +57,21 @@ class MusicEditCtrl{
 		$this->form->id = ParamUtils::getFromRequest('id',true,'Błędne wywołanie aplikacji');
 		return ! App::getMessages()->isError();
 	}
-	
-	public function action_personNew(){
+	public function action_ShowDB(){
+		$Album = App::getDB()->select('albums','*');
+		App::getSmarty()->assign("Album",$Album);
+
+		$Performer = App::getDB()->select('performers','*');
+		App::getSmarty()->assign("Performer",$Performer);
+
+		App::getSmarty()->display('DbView.tpl');
+	}
+	public function action_AlbumNew(){
 		$this->generateView();
 	}
 	
 	//wysiweltenie rekordu do edycji wskazanego parametrem 'id'
-	public function action_personEdit(){
+	public function action_AlbumEdit(){
 		// 1. walidacja id osoby do edycji
 		if ( $this->validateEdit() ){
 			try {
@@ -86,7 +94,7 @@ class MusicEditCtrl{
 		$this->generateView();		
 	}
 
-	public function action_personDelete(){		
+	public function action_AlbumDelete(){		
 		// 1. walidacja id osoby do usuniecia
 		if ( $this->validateEdit() ){
 			
@@ -159,6 +167,8 @@ class MusicEditCtrl{
 		App::getSmarty()->assign('form',$this->form); // dane formularza dla widoku
 		APP::getSmarty()->display('MusicEdit.tpl');
 	}
+
+
 }
     
         

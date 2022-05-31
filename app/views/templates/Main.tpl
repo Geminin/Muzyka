@@ -44,15 +44,15 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Bazy <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 
-							<li><a href="/Calc/calc.php">Muzyka</a></li>
+							<li><a href="{$conf->action_root}?" class="pure-menu-heading pure-menu-link">Muzyka</a></li>
 
-							<li><a href="/Cred/cred.php">Pracownicy</a></li>
+							<li><a href="{$conf->action_root}?" class="pure-menu-heading pure-menu-link">Pracownicy</a></li>
 
 
 						</ul>
 					</li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Projekty <b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Koszyk <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 
 
@@ -79,9 +79,9 @@
 	<header id="head">
 		<div class="container">
 			<div class="row">
-				<h1 class="lead">{$tytul|default:"Tytuł domyślny"}</h1>
+				<h1 class="lead">{$tytul|default:"Music4ly"}</h1>
 				
-				<p class="tagline">{$under|default:"opis domyślny"}</p>
+				<p class="tagline">{$under|default:""}</p>
 				
 			</div>
 		</div>
