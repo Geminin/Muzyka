@@ -312,7 +312,29 @@ public $subBlocks = array (
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
  
-
+		<table cellpadding="5">
+			<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['lista']->value, 'wiersz');
+$_smarty_tpl->tpl_vars['wiersz']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['wiersz']->value) {
+$_smarty_tpl->tpl_vars['wiersz']->do_else = false;
+?>
+			<tr>
+ 				<td><?php echo $_smarty_tpl->tpl_vars['wiersz']->value["Album_id"];?>
+</td>
+ 				<td><?php echo $_smarty_tpl->tpl_vars['wiersz']->value["Title"];?>
+</td>
+ 				<td><?php echo $_smarty_tpl->tpl_vars['wiersz']->value["Performer_id"];?>
+</td>
+ 				<td><?php echo $_smarty_tpl->tpl_vars['wiersz']->value["Genre"];?>
+</td>
+ 				<td><?php echo $_smarty_tpl->tpl_vars['wiersz']->value["Price"];?>
+</td>
+			</tr>
+			<?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+		</table>
 		<?php
 }
 }
