@@ -35,6 +35,9 @@
 		{
 			"name": "php_09_ajax",
 			"path": "..\\..\\..\\php_09_ajax"
+		},
+		{
+			"path": "..\\..\\..\\Test"
 		}
 	],
 	"settings": {}

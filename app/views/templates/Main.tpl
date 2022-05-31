@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="{$conf->app_url}/assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="{$conf->app_url}/assets/css/font-awesome.min.css">
 
+
 	<!-- Custom styles for our template -->
 	<link rel="stylesheet" href="{$conf->app_url}/assets/css/bootstrap-theme.css" media="screen" >
 	<link rel="stylesheet" href="{$conf->app_url}/assets/css/main.css">
@@ -44,7 +45,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Bazy <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 
-							<li><a href="{$conf->action_root}?" class="pure-menu-heading pure-menu-link">Muzyka</a></li>
+							<li><a href="{$conf->action_root}ShowDB" class="pure-menu-heading pure-menu-link">Muzyka</a></li>
 
 							<li><a href="{$conf->action_root}?" class="pure-menu-heading pure-menu-link">Pracownicy</a></li>
 
@@ -234,6 +235,8 @@
 	<script src="{$conf->app_url}/assets/js/headroom.min.js"></script>
 	<script src="{$conf->app_url}/assets/js/jQuery.headroom.min.js"></script>
 	<script src="{$conf->app_url}/assets/js/template.js"></script>
+	<script type="text/javascript" src="{$conf->app_url}/assets/js/functions.js"></script>
+	
 
 </body>
 </html>

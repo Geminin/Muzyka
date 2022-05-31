@@ -9,6 +9,7 @@ use core\Message;
 use core\Utils;
 use core\RoleUtils;
 use core\ParamUtils;
+use core\Validator;
 
 class AlbumEditCtrl{
     private $form;
@@ -17,44 +18,54 @@ class AlbumEditCtrl{
     }
     
     public function validateSave(){
-        $this->form->Album_id = ParamUtils::getFromRequest('Album_id',true,'Błędne wywołanie aplikacji');
-        $this->form->Title = ParamUtils::getFromRequest('Title',true,'Błędne wywołanie aplikacji');
-        $this->form->Performer_id = ParamUtils::getFromRequest('Performer_id',true,'Błędne wywołanie aplikacji');
-        $this->form->Name = ParamUtils::getFromRequest('Name',true,'Błędne wywołanie aplikacji');
-        $this->form->Genre = ParamUtils::getFromRequest('Genre',true,'Błędne wywołanie aplikacji');
-        $this->form->Price = ParamUtils::getFromRequest('Price',true,'Błędne wywołanie aplikacji');
-        $this->form->Tracks = ParamUtils::getFromRequest('Tracks',true,'Błędne wywołanie aplikacji');
+	
+	$this->form->id - ParamUtils::getFromPost('Album_id',true,'Błędne wywołanie aplikacji');
 
-        if ( App::getMessages()->isError() ) return false;
+	$v = new Validator();
 
-		// 1. sprawdzenie czy wartości wymagane nie są puste
-		if (empty(trim($this->form->name))) {
-			App::getMessages()->Utils::addError('Wprowadź imię');
-		}
-		if (empty(trim($this->form->surname))) {
-			App::getMessages()->Utils::addError('Wprowadź nazwisko');
-		}
-		if (empty(trim($this->form->birthdate))) {
-			App::getMessages()->Utils::addError('Wprowadź datę urodzenia');
-		}
 
-		if ( App::getMessages()->isError() ) return false;
-		
-		// 2. sprawdzenie poprawności przekazanych parametrów
-		
-		$d = DateTime::createFromFormat('Y-m-d', $this->form->birthdate);
-		if ( $d === false ){
-			App::getMessages()->Utils::addError('Zły format daty. Przykład: 2015-12-20');
-		}
-		
-		return ! App::getMessages()->isError();
+	$this->form->Title = $v->validateFromPost('Title',[
+		    'trim' => true,
+		    'required' => true,
+		    'required_message' => 'Podaj Tytuł Albumu'
+	]);
+
+	$this->form->Performer_id = $v->validateFromPost('Performer_id',[
+		'trim' => true,
+		'required' => true,
+		'required_message' => 'Podaj Id wykonawcy',
+		'int' => true
+
+
+	]);
+
+	$this->form->Genre = $v->validateFromPost('Genre',[
+		'trim' => true,
+		'required' => true,
+		'required_message' => 'Podaj gatunek',
+	]);
+	$this->form->Price = $v->validateFromPost('Price',[
+		'trim' => true,
+		'required' => true,
+		'float' =>true,
+		'required_message' => 'Podaj cenę',
+	]);
+	$this->form->Tracks = $v->validateFromPost('Tracks',[
+		'trim'=> true,
+		'required_message'=> 'Podaj utwory'
+	]);
+
+	return !App::getMessages()->isError();
+
+	
 	}
+
 
 	//validacja danych przed wyswietleniem do edycji
 	public function validateEdit() {
 		//pobierz parametry na potrzeby wyswietlenia danych do edycji
 		//z widoku listy osób (parametr jest wymagany)
-		$this->form->id = ParamUtils::getFromRequest('id',true,'Błędne wywołanie aplikacji');
+		$this->form->id = ParamUtils::getFromCleanURL('id',true,'Błędne wywołanie aplikacji');
 		return ! App::getMessages()->isError();
 	}
 	public function action_ShowDB(){
@@ -76,17 +87,19 @@ class AlbumEditCtrl{
 		if ( $this->validateEdit() ){
 			try {
 				// 2. odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
-				$record = App::getDB()->get("person", "*",[
-					"idperson" => $this->form->id
+				$record = App::getDB()->get("Albums", "*",[
+					"Album_id" => $this->form->id
 				]);
 				// 2.1 jeśli osoba istnieje to wpisz dane do obiektu formularza
-				$this->form->id = $record['idperson'];
-				$this->form->name = $record['name'];
-				$this->form->surname = $record['surname'];
-				$this->form->birthdate = $record['birthdate'];
-			} catch (PDOException $e){
-				App::getMessages()->App::addError('Wystąpił błąd podczas odczytu rekordu');
-				if (App::getConf()->debug) App::getMessages()->Utils::addError($e->getMessage());			
+				$this->form->id = $record['Album_id'];
+				$this->form->Title = $record['Title'];
+				$this->form->Genre = $record['Genre'];
+				$this->form->Price = $record['Price'];
+				$this->form->Tracks = $record['Tracks'];
+			} catch (\PDOException $e) {
+                Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
+                if (App::getConf()->debug)
+                    Utils::addErrorMessage($e->getMessage());			
 			}	
 		} 
 		
@@ -100,8 +113,8 @@ class AlbumEditCtrl{
 			
 			try{
 				// 2. usunięcie rekordu
-				App::getDB()->delete("person",[
-					"idperson" => $this->form->id
+				App::getDB()->delete("albums",[
+					"Album_id" => $this->form->id
 				]);
 				App::getMessages()->App::addInfo('Pomyślnie usunięto rekord');
 			} catch (PDOException $e){

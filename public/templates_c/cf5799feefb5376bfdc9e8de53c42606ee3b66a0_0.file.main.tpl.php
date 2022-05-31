@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-05-29 16:27:54
+/* Smarty version 4.1.0, created on 2022-05-31 11:13:06
   from 'D:\programowanie\Nowy folder\htdocs\Muzyka\app\views\templates\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_629382ea446460_63239010',
+  'unifunc' => 'content_6295dc22e868e6_94915073',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cf5799feefb5376bfdc9e8de53c42606ee3b66a0' => 
     array (
       0 => 'D:\\programowanie\\Nowy folder\\htdocs\\Muzyka\\app\\views\\templates\\main.tpl',
-      1 => 1653834462,
+      1 => 1653988280,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_629382ea446460_63239010 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6295dc22e868e6_94915073 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -44,6 +44,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 /assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /assets/css/font-awesome.min.css">
+
 
 	<!-- Custom styles for our template -->
 	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
@@ -79,15 +80,17 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Bazy <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 
-							<li><a href="/Calc/calc.php">Muzyka</a></li>
+							<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+ShowDB" class="pure-menu-heading pure-menu-link">Muzyka</a></li>
 
-							<li><a href="/Cred/cred.php">Pracownicy</a></li>
+							<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+?" class="pure-menu-heading pure-menu-link">Pracownicy</a></li>
 
 
 						</ul>
 					</li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Projekty <b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Koszyk <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 
 
@@ -96,7 +99,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 					</li>
 					
 					<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1082730826629382ea438767_41219341', 'log');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12154486376295dc22e778f5_77691078', 'log');
 ?>
 
 					
@@ -111,10 +114,10 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1082730826629382ea
 	<header id="head">
 		<div class="container">
 			<div class="row">
-				<h1 class="lead"><?php echo (($tmp = $_smarty_tpl->tpl_vars['tytul']->value ?? null)===null||$tmp==='' ? "Tytuł domyślny" ?? null : $tmp);?>
+				<h1 class="lead"><?php echo (($tmp = $_smarty_tpl->tpl_vars['tytul']->value ?? null)===null||$tmp==='' ? "Music4ly" ?? null : $tmp);?>
 </h1>
 				
-				<p class="tagline"><?php echo (($tmp = $_smarty_tpl->tpl_vars['under']->value ?? null)===null||$tmp==='' ? "opis domyślny" ?? null : $tmp);?>
+				<p class="tagline"><?php echo (($tmp = $_smarty_tpl->tpl_vars['under']->value ?? null)===null||$tmp==='' ? '' ?? null : $tmp);?>
 </p>
 				
 			</div>
@@ -125,11 +128,11 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1082730826629382ea
 	<!-- Intro -->
 	<div class="container text-center">
 		<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_557832880629382ea43cea2_47611807', 'whitey');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14817666296295dc22e7c654_94326322', 'whitey');
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_889341032629382ea43d3f4_05912212', 'messages');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17193824196295dc22e7ce88_85965643', 'messages');
 ?>
 
 	</div>
@@ -144,18 +147,18 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_889341032629382ea4
 		    <div class="container">
 				
 				<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1457401409629382ea4447c5_14271477', 'form');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2181060166295dc22e84752_75208902', 'form');
 ?>
 
 			    <h3 class="text-center thin"></h3>
 			
 				<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_743928139629382ea444d02_85666857', 'row');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4891613196295dc22e84ca0_07774053', 'row');
 ?>
 
 		 		<!-- /row  -->
 			<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_931362550629382ea4451d0_35411469', 'Cform');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5974131146295dc22e85195_10948725', 'Cform');
 ?>
 
 		    </div>
@@ -274,16 +277,21 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_931362550629382ea4
  src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /assets/js/template.js"><?php echo '</script'; ?>
 >
+	<?php echo '<script'; ?>
+ type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
+/assets/js/functions.js"><?php echo '</script'; ?>
+>
+	
 
 </body>
 </html><?php }
 /* {block 'log'} */
-class Block_1082730826629382ea438767_41219341 extends Smarty_Internal_Block
+class Block_12154486376295dc22e778f5_77691078 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'log' => 
   array (
-    0 => 'Block_1082730826629382ea438767_41219341',
+    0 => 'Block_12154486376295dc22e778f5_77691078',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -301,51 +309,29 @@ loginShow" class="pure-menu-heading pure-menu-link">Zaloguj</a>
 }
 /* {/block 'log'} */
 /* {block 'whitey'} */
-class Block_557832880629382ea43cea2_47611807 extends Smarty_Internal_Block
+class Block_14817666296295dc22e7c654_94326322 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'whitey' => 
   array (
-    0 => 'Block_557832880629382ea43cea2_47611807',
+    0 => 'Block_14817666296295dc22e7c654_94326322',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
  
-		<table cellpadding="5">
-			<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['lista']->value, 'wiersz');
-$_smarty_tpl->tpl_vars['wiersz']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['wiersz']->value) {
-$_smarty_tpl->tpl_vars['wiersz']->do_else = false;
-?>
-			<tr>
- 				<td><?php echo $_smarty_tpl->tpl_vars['wiersz']->value["Album_id"];?>
-</td>
- 				<td><?php echo $_smarty_tpl->tpl_vars['wiersz']->value["Title"];?>
-</td>
- 				<td><?php echo $_smarty_tpl->tpl_vars['wiersz']->value["Performer_id"];?>
-</td>
- 				<td><?php echo $_smarty_tpl->tpl_vars['wiersz']->value["Genre"];?>
-</td>
- 				<td><?php echo $_smarty_tpl->tpl_vars['wiersz']->value["Price"];?>
-</td>
-			</tr>
-			<?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-		</table>
+
 		<?php
 }
 }
 /* {/block 'whitey'} */
 /* {block 'messages'} */
-class Block_889341032629382ea43d3f4_05912212 extends Smarty_Internal_Block
+class Block_17193824196295dc22e7ce88_85965643 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'messages' => 
   array (
-    0 => 'Block_889341032629382ea43d3f4_05912212',
+    0 => 'Block_17193824196295dc22e7ce88_85965643',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -375,12 +361,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 /* {/block 'messages'} */
 /* {block 'form'} */
-class Block_1457401409629382ea4447c5_14271477 extends Smarty_Internal_Block
+class Block_2181060166295dc22e84752_75208902 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'form' => 
   array (
-    0 => 'Block_1457401409629382ea4447c5_14271477',
+    0 => 'Block_2181060166295dc22e84752_75208902',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -392,12 +378,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'form'} */
 /* {block 'row'} */
-class Block_743928139629382ea444d02_85666857 extends Smarty_Internal_Block
+class Block_4891613196295dc22e84ca0_07774053 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'row' => 
   array (
-    0 => 'Block_743928139629382ea444d02_85666857',
+    0 => 'Block_4891613196295dc22e84ca0_07774053',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -409,12 +395,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'row'} */
 /* {block 'Cform'} */
-class Block_931362550629382ea4451d0_35411469 extends Smarty_Internal_Block
+class Block_5974131146295dc22e85195_10948725 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'Cform' => 
   array (
-    0 => 'Block_931362550629382ea4451d0_35411469',
+    0 => 'Block_5974131146295dc22e85195_10948725',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
