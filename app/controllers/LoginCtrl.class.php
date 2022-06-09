@@ -7,7 +7,7 @@ use core\Utils;
 use core\RoleUtils;
 use core\ParamUtils;
 use app\forms\LoginForm;
-
+use core\SessionUtils;
 
 class LoginCtrl {
 
@@ -53,7 +53,7 @@ class LoginCtrl {
         $pass = $this->form->pass;
         
         $Acc = App::getDB()->get("users","*",["Login"=>$login]);
-        $this->form->ID = $Acc["ID"];
+        
 
         if ($Acc == NULL){
             Utils::addErrorMessage('Nie poprawna nazwa użytkownika');
@@ -72,6 +72,7 @@ class LoginCtrl {
         }
 
         
+        
 
 
 
@@ -87,8 +88,11 @@ class LoginCtrl {
     public function action_login() {
         if ($this->validate()) {
             //zalogowany => przekieruj na główną akcję (z przekazaniem messages przez sesję)
+
+            SessionUtils::store("loginf", $this->form->login);
+
             Utils::addErrorMessage('Poprawnie zalogowano do systemu');
-            App::getRouter()->redirectTo("Coś");
+            App::getRouter()->redirectTo("shop");
         } else {
             //niezalogowany => pozostań na stronie logowania
             $this->generateView();

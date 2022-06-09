@@ -13,11 +13,11 @@ Utils::addRoute('login',			'LoginCtrl');
 Utils::addRoute('logout',			'LoginCtrl');
 
 //Baza Muzyka
-Utils::addRoute('ShowDB',           'AlbumEditCtrl');
-Utils::addRoute('AlbumEdit',        'AlbumEditCtrl');
-Utils::addRoute('AlbumNew',         'AlbumEditCtrl');
-Utils::addRoute('AlbumDelete',      'AlbumEditCtrl');
-Utils::addRoute('MusicSave',        'AlbumEditCtrl');
+Utils::addRoute('ShowDB',           'AlbumEditCtrl',['Worker','Admin']);
+Utils::addRoute('AlbumEdit',        'AlbumEditCtrl',['Worker','Admin']);
+Utils::addRoute('AlbumNew',         'AlbumEditCtrl',['Worker','Admin']);
+Utils::addRoute('AlbumDelete',      'AlbumEditCtrl',['Worker','Admin']);
+Utils::addRoute('MusicSave',        'AlbumEditCtrl',['Worker','Admin']);
 /*
 //Baza Pracownicy
 Utils::addRoute('ShowDB',           'WorkerEditCtrl');

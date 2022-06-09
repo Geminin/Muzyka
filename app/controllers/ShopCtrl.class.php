@@ -6,6 +6,7 @@ use core\App;
 use core\Message;
 use core\Utils;
 use app\forms\LoginForm;
+use core\SessionUtils;
 
 /**
  * HelloWorld built in Amelia - sample controller
@@ -13,9 +14,10 @@ use app\forms\LoginForm;
  * @author Przemysław Kudłacik
  */
 class ShopCtrl {
+    private $logininfo;
     
     public function action_shop() {
-
+        
         //$albums =App::getDB()->select("albums","*");
         $albums = App::getDB()->select("albums",["[>]performers" => "Performer_id"],
             [
@@ -28,6 +30,9 @@ class ShopCtrl {
                 "albums.Tracks"
                 
             ]);
+
+            $tempinfo = SessionUtils::load("loginf",true);
+        $this->logininfo = $tempinfo;
 
         App::getSmarty()->assign("lista",$albums);
 
@@ -45,6 +50,7 @@ class ShopCtrl {
 
     
         App::getSmarty()->assign("Cart",$Cart);
+        App::getSmarty()->assign('logininfo', $this->logininfo);
         App::getSmarty()->display("ShopView.tpl");
         
     }

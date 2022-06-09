@@ -91,8 +91,10 @@ class AlbumEditCtrl
 	//wysiweltenie rekordu do edycji wskazanego parametrem 'id'
 	public function action_AlbumEdit()
 	{
+		
 		// 1. walidacja id osoby do edycji
 		if ($this->validateEdit()) {
+			//ParamUtils::getFromRequest('Album_id');
 			try {
 				// 2. odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
 				$record = App::getDB()->get("albums", "*", [
@@ -126,15 +128,15 @@ class AlbumEditCtrl
 				App::getDB()->delete("albums", [
 					"Album_id" => $this->form->Album_id
 				]);
-				App::getMessages()->App::addInfo('Pomyślnie usunięto rekord');
+				Utils::addInfoMessage('Pomyślnie usunięto rekord');
 			} catch (PDOException $e) {
 				App::getMessages()->App::addError('Wystąpił błąd podczas usuwania rekordu');
-				if (App::getConf()->debug) App::getMessages()->Utils::addError($e->getMessage());
+				if (App::getConf()->debug) Utils::addErrorMessage($e->getMessage());
 			}
 		}
 
 		// 3. Przekierowanie na stronę listy osób
-		//forwardTo('');		
+		App::getRouter()->forwardTo('ShowDB');		
 	}
 
 	public function action_MusicSave()
@@ -142,24 +144,23 @@ class AlbumEditCtrl
 
 		// 1. Walidacja danych formularza (z pobraniem)
 		if ($this->validateSave()) {
+			//ParamUtils::getFromRequest('Album_id');
 			// 2. Zapis danych w bazie
 			try {
 
 				//2.1 Nowy rekord
 				
-				if (!isset($this->form->Album_id)) {
+				if ($this->form->Album_id == '') {
 					//sprawdź liczebność rekordów - nie pozwalaj przekroczyć 20
 					$count = App::getDB()->count("albums");
 					if ($count <= 30) {
-						App::getDB()->update("albums", [
+						App::getDB()->insert("albums", [
 							"Album_id" => $this->form->Album_id,
 							"Title" => $this->form->Title,
 							"Performer_id" => $this->form->Performer_id,
 							"Genre" => $this->form->Genre,
 							"Price" => $this->form->Price,
 							"Tracks" => $this->form->Tracks
-						],[
-							"Album_id" => $this->form->Album_id
 						]);
 					} else { //za dużo rekordów
 						// Gdy za dużo rekordów to pozostań na stronie
@@ -169,7 +170,7 @@ class AlbumEditCtrl
 					}
 				} else {
 					//2.2 Edycja rekordu o danym ID
-					App::getDB()->insert("albums", [
+					App::getDB()->update("albums", [
 						
 						
 						"Title" => $this->form->Title,
@@ -177,6 +178,8 @@ class AlbumEditCtrl
 						"Genre" => $this->form->Genre,
 						"Price" => $this->form->Price,
 						"Tracks" => $this->form->Tracks
+					],[
+						"Album_id" => $this->form->Album_id
 					]);
 				}
 				Utils::addErrorMessage('Pomyślnie zapisano rekord');

@@ -24,4 +24,9 @@ public function action_Buy(){
 
 }
 
+
+public function generateView(){
+    
+}
+
 }

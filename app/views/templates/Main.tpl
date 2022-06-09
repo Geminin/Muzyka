@@ -53,7 +53,7 @@
 
 							<li><a href="{$conf->action_root}ShowDB" class="pure-menu-heading pure-menu-link">Muzyka</a></li>
 
-							<li><a href="{$conf->action_root}ShowUsers" class="pure-menu-heading pure-menu-link">Pracownicy</a></li>
+							<!--<li><a href="{$conf->action_root}ShowUsers" class="pure-menu-heading pure-menu-link">Pracownicy</a></li> -->>
 
 
 						</ul>
@@ -66,15 +66,27 @@
 							{/block}
 						</ul>
 					</li>
-					<li>
+					
 					{block name=log} 
+					<li>
 					{if count($conf->roles)>0}
 						<a class="btn btn-default btn-lg" href="{$conf->action_root}logout" >Wyloguj</a>
+						
+						
 					{else}	
 						<a class="btn btn-default btn-lg" href="{$conf->action_root}loginShow" >Zaloguj</a>
+
 					{/if}
-					</div> {/block}
 					</li>
+					{if count($conf->roles)>0}
+					<li><a class="btn btn-default btn-lg">{$logininf}</button></a>	</li>
+					{/if}
+					{/block}
+					
+					
+					
+					<li>
+
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>

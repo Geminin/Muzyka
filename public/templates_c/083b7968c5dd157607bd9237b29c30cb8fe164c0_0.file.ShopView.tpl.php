@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-06-07 11:01:44
+/* Smarty version 4.1.0, created on 2022-06-09 18:13:00
   from 'D:\programowanie\Nowy folder\htdocs\Muzyka\app\views\ShopView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_629f13f8917ac8_45798901',
+  'unifunc' => 'content_62a21c0cf1d151_59205784',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,30 +20,30 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_629f13f8917ac8_45798901 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62a21c0cf1d151_59205784 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_899711038629f13f8909325_94651740', 'cart');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_100467267362a21c0cf0e303_96359932', 'cart');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_436830990629f13f8912006_40348886', 'row');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_143406630462a21c0cf17810_34748395', 'row');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "Main.tpl");
 }
 /* {block 'cart'} */
-class Block_899711038629f13f8909325_94651740 extends Smarty_Internal_Block
+class Block_100467267362a21c0cf0e303_96359932 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'cart' => 
   array (
-    0 => 'Block_899711038629f13f8909325_94651740',
+    0 => 'Block_100467267362a21c0cf0e303_96359932',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -70,12 +70,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 /* {/block 'cart'} */
 /* {block 'row'} */
-class Block_436830990629f13f8912006_40348886 extends Smarty_Internal_Block
+class Block_143406630462a21c0cf17810_34748395 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'row' => 
   array (
-    0 => 'Block_436830990629f13f8912006_40348886',
+    0 => 'Block_143406630462a21c0cf17810_34748395',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
