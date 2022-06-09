@@ -1,0 +1,45 @@
+{
+	"folders": [
+		{
+			"name": "Szablon-widok",
+			"path": "..\\..\\..\\Szablon-widok"
+		},
+		{
+			"name": "Ochrona_Dostepu",
+			"path": "..\\..\\..\\Ochrona_Dostepu"
+		},
+		{
+			"name": "Smarty-obiekt",
+			"path": "..\\..\\..\\Smarty-obiekt"
+		},
+		{
+			"name": "SE",
+			"path": "..\\..\\..\\SE"
+		},
+		{
+			"name": "Nowy folder",
+			"path": "C:\\Users\\7mate\\OneDrive\\Pulpit\\Nowy folder"
+		},
+		{
+			"name": "php_08_bd",
+			"path": "..\\..\\..\\php_08_bd"
+		},
+		{
+			"name": "Muzyka",
+			"path": "..\\.."
+		},
+		{
+			"name": "Sklep_Muz",
+			"path": "..\\..\\..\\Sklep_Muz"
+		},
+		{
+			"name": "php_09_ajax",
+			"path": "..\\..\\..\\php_09_ajax"
+		},
+		{
+			"name": "Test",
+			"path": "..\\..\\..\\Test"
+		}
+	],
+	"settings": {}
+}

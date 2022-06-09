@@ -14,14 +14,19 @@ Utils::addRoute('logout',			'LoginCtrl');
 
 //Baza Muzyka
 Utils::addRoute('ShowDB',           'AlbumEditCtrl');
-Utils::addRoute('AlbmuEdit',        'AlbumEditCtrl');
+Utils::addRoute('AlbumEdit',        'AlbumEditCtrl');
 Utils::addRoute('AlbumNew',         'AlbumEditCtrl');
 Utils::addRoute('AlbumDelete',      'AlbumEditCtrl');
-
+Utils::addRoute('MusicSave',        'AlbumEditCtrl');
+/*
 //Baza Pracownicy
-Utils::addRoute('','WorkerEditCtrl');
-Utils::addRoute('','WorkerEditCtrl');
-Utils::addRoute('','WorkerEditCtrl');
-Utils::addRoute('','WorkerEditCtrl');
-
+Utils::addRoute('ShowDB',           'WorkerEditCtrl');
+Utils::addRoute('WorkerEdit',       'WorkerEditCtrl');
+Utils::addRoute('UserEdit',         'WorkerEditCtrl');
+Utils::addRoute('UserDelete',       'WorkerEditCtrl');
+Utils::addRoute('UserSave',         'WorkerEditCtrl');
+*/
 //Koszyk
+
+Utils::addRoute('AddToCart',        'ShopCtrl');
+Utils::addRoute('ShowCart',         'CartCtrl');

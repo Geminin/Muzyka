@@ -5,6 +5,7 @@
 <table class="pure-table pure-table-bordered" align="center">
 <thead>
     <tr align="center">
+        <td>Id</td>
         <td>Title</td>
         <td>Performer_id</td>
         <td>Genre</td>
@@ -17,7 +18,7 @@
 {foreach $Album as $wiersz}
     
     <tr>
-
+        <td> {$wiersz["Album_id"]}</td>
         <td> {$wiersz["Title"]}</td>
         <td> {$wiersz["Performer_id"]}</td>
         <td> {$wiersz["Genre"]}</td>

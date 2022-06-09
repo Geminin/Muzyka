@@ -7,8 +7,7 @@ use core\Utils;
 use core\RoleUtils;
 use core\ParamUtils;
 use app\forms\LoginForm;
-use core\SessionUtils;
-use app\transfer\User;
+
 
 class LoginCtrl {
 
@@ -52,8 +51,10 @@ class LoginCtrl {
   */      
         $login = $this->form->login;
         $pass = $this->form->pass;
-
+        
         $Acc = App::getDB()->get("users","*",["Login"=>$login]);
+        $this->form->ID = $Acc["ID"];
+
         if ($Acc == NULL){
             Utils::addErrorMessage('Nie poprawna nazwa użytkownika');
         } else if ($pass != $Acc['Password']){

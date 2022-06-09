@@ -40,14 +40,20 @@
 				<a class="navbar-brand"><img src="assets/images/logo.png" alt="Progressus HTML5 template"></a>
 			</div>
 			<div class="navbar-collapse collapse">
+
+				
+
 				<ul class="nav navbar-nav pull-right">
+				
+					<li><a href="{$conf->action_root}shop"class="btn btn-default btn-lg">Strona Główna</a></li>
 					<li class="dropdown">
+
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Bazy <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 
 							<li><a href="{$conf->action_root}ShowDB" class="pure-menu-heading pure-menu-link">Muzyka</a></li>
 
-							<li><a href="{$conf->action_root}?" class="pure-menu-heading pure-menu-link">Pracownicy</a></li>
+							<li><a href="{$conf->action_root}ShowUsers" class="pure-menu-heading pure-menu-link">Pracownicy</a></li>
 
 
 						</ul>
@@ -55,20 +61,20 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Koszyk <b class="caret"></b></a>
 						<ul class="dropdown-menu">
+							{block name=cart}
 
-
-
+							{/block}
 						</ul>
 					</li>
-					
+					<li>
 					{block name=log} 
 					{if count($conf->roles)>0}
-						<a href="{$conf->action_root}logout" class="pure-menu-heading pure-menu-link">Wyloguj</a>
+						<a class="btn btn-default btn-lg" href="{$conf->action_root}logout" >Wyloguj</a>
 					{else}	
-						<a href="{$conf->action_root}loginShow" class="pure-menu-heading pure-menu-link">Zaloguj</a>
+						<a class="btn btn-default btn-lg" href="{$conf->action_root}loginShow" >Zaloguj</a>
 					{/if}
 					</div> {/block}
-					
+					</li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
